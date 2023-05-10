@@ -1,6 +1,7 @@
 body {
     display: grid;
     place-items: center;
+    height: 100vh;
     background: linear-gradient(
         to bottom,
         #009688 20%,
@@ -11,32 +12,35 @@ body {
 #app {
     height: 90%;
     width: 70%;
-} 
-
-.chat_left {
-    height: 10%;
 }
 
 .user_profile {
-    width: 70%;
+    width: 10rem;
+}
+
+.user_profile img {
+    width: 20%;
+}
+
+.notific_desk {
+    background-color: rgb(120, 172, 231);
+}
+
+.input_search {
+    height: 3rem;
 }
 
 .user_profile img {
     width: 25%;
 }
 
-.notific_desk {
-    height: 10%;
-    background-color: rgb(120, 172, 231);
-}
-
 .slider_user {
-    height: 75%;
+    height: calc(100% - 190px);
     overflow-y: scroll;
 }
 
 .slider_user img {
-    width: 30%;
+    width: 15%;
 }
 
 .chat_right {

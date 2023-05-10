@@ -24,7 +24,7 @@
     <!-- LINK STYLE.CSS -->
     <link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="vh-100">
+<body>
     <div class="bg-light d-flex" id="app">
         
         <div class="col-4">
@@ -41,8 +41,8 @@
             </div>
             
             <div class="notific_desk d-flex align-items-center px-3">
-                <i class="fa-solid fa-bell-slash fs-3"></i>
-                <div class="px-3">
+                <i class="fa-solid fa-bell-slash"></i>
+                <div class="notific_icon px-3">
                     <div class="fw-bold">
                         Ricevi notifiche di nuovi messaggi
                     </div>
@@ -50,7 +50,7 @@
                 </div>
             </div>
             
-            <div class="input-group flex-nowrap">
+            <div class="input_search input-group flex-nowrap">
                 <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass text-secondary"></i></span>
                 <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="addon-wrapping">
             </div>
@@ -69,7 +69,8 @@
                 
                     <div class="text">
                         <p>{{ item.name }}</p>
-                        <div></div>
+                        <p class="fs-6">{{ item.messages[item.messages.length - 1].message }}</p>
+                        <p class="fs-6">{{ item.messages[item.messages.length - 1].date }}</p>
                     </div>
                 </div>
             </div>
