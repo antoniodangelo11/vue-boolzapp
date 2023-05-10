@@ -1,0 +1,65 @@
+body {
+    display: grid;
+    place-items: center;
+    background: linear-gradient(
+        to bottom,
+        #009688 20%,
+        #D8DBD5 20%
+    );
+}
+
+#app {
+    height: 90%;
+    width: 70%;
+}
+
+.chat_left {
+    height: 10%;
+}
+
+.user_profile {
+    width: 70%;
+}
+
+.user_profile img {
+    width: 25%;
+}
+
+.notific_desk {
+    height: 10%;
+    background-color: rgb(120, 172, 231);
+}
+
+.chat_right {
+    background-image: url("../img/mine.jpg");
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.chat_msg {
+    height: 70%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.chat_white {
+    background-color: #4af805b9;
+}
+
+.chat_green {
+    background-color: white;
+}
+
+.controls {
+    background-color: white;
+}
+
+.controls i {
+    padding-inline: 1rem;
+}
+
+.controls input {
+    width: 80%;
+}
