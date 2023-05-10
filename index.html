@@ -55,10 +55,9 @@
                 <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="addon-wrapping">
             </div>
             
-            <div class="slider_profile">
+            <div class="slider_user">
                 <div
-                    v-for="(item, index) in contacts" 
-                    :class="{active: index == activeIndex}"
+                    v-for="item in contacts" 
                     class="d-flex align-items-center"
                 >
                 
@@ -70,6 +69,7 @@
                 
                     <div class="text">
                         <p>{{ item.name }}</p>
+                        <div></div>
                     </div>
                 </div>
             </div>

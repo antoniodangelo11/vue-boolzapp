@@ -30,8 +30,13 @@ body {
     background-color: rgb(120, 172, 231);
 }
 
-.slider_profile img {
-    width: 15%;
+.slider_user {
+    height: 75%;
+    overflow-y: scroll;
+}
+
+.slider_user img {
+    width: 30%;
 }
 
 .chat_right {
