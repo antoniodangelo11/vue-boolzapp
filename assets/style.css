@@ -11,7 +11,7 @@ body {
 #app {
     height: 90%;
     width: 70%;
-}
+} 
 
 .chat_left {
     height: 10%;
@@ -28,6 +28,10 @@ body {
 .notific_desk {
     height: 10%;
     background-color: rgb(120, 172, 231);
+}
+
+.slider_profile img {
+    width: 15%;
 }
 
 .chat_right {

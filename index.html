@@ -49,11 +49,30 @@
                     <a class="text-secondary" href="">Attiva notifiche desktop</a>
                 </div>
             </div>
+            
             <div class="input-group flex-nowrap">
                 <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass text-secondary"></i></span>
                 <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="addon-wrapping">
             </div>
-            <div class="bg-body-secondary"></div>
+            
+            <div class="slider_profile">
+                <div
+                    v-for="(item, index) in contacts" 
+                    :class="{active: index == activeIndex}"
+                    class="d-flex align-items-center"
+                >
+                
+                    <img 
+                        :src="item.avatar" 
+                        :alt="item.avatar"
+                        class="rounded-5 py-1 px-2"
+                    >
+                
+                    <div class="text">
+                        <p>{{ item.name }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="col-8">
