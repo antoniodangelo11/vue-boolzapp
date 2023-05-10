@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <div class="bg-light d-flex" id="app">
+    <div class="bg-light d-flex container p-0" id="app">
         
         <div class="col-4">
             <div class="chat_left d-flex justify-content-between align-items-center bg-body-secondary px-2">
@@ -33,7 +33,7 @@
                     <img class="rounded-5" :src="user.avatar" alt="">
                     <span class="px-2">{{ user.name }}</span>
                 </div>
-                <div class="user_icons">
+                <div class="user_icons d-flex align-items-center">
                     <i class="bi bi-circle px-2 text-secondary"></i>
                     <i class="fa-solid fa-message px-2 text-secondary"></i>
                     <i class="fa-solid fa-ellipsis-vertical px-2 text-secondary"></i>
@@ -67,10 +67,10 @@
                         class="rounded-5 py-1 px-2"
                     >
                 
+                    <p class="fs-6">{{ item.name }}</p>
                     <div class="text">
-                        <p>{{ item.name }}</p>
-                        <p class="fs-6">{{ item.messages[item.messages.length - 1].message }}</p>
-                        <p class="fs-6">{{ item.messages[item.messages.length - 1].date }}</p>
+                        <p>{{ item.messages[item.messages.length - 1].message }}</p>
+                        <p>{{ item.messages[item.messages.length - 1].date }}</p>
                     </div>
                 </div>
             </div>

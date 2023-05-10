@@ -9,17 +9,8 @@ body {
     );
 }
 
-#app {
-    height: 90%;
-    width: 70%;
-}
-
-.user_profile {
-    width: 10rem;
-}
-
-.user_profile img {
-    width: 20%;
+.chat_left {
+    height: 4rem;
 }
 
 .notific_desk {
@@ -27,20 +18,24 @@ body {
 }
 
 .input_search {
-    height: 3rem;
+    height: 2rem;
 }
 
 .user_profile img {
-    width: 25%;
+    width: 15%;
 }
 
 .slider_user {
-    height: calc(100% - 190px);
+    height: calc(100% - 168px);
     overflow-y: scroll;
 }
 
 .slider_user img {
     width: 15%;
+}
+
+.text {
+    font-size: 10px;
 }
 
 .chat_right {
