@@ -25,69 +25,82 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <div class="bg-light d-flex container p-0" id="app">
-        
-        <!-- CONTENT CHAT-LEFT -->
+    <div class="container d-flex align-items-center justify-content-center" id="app">
+        <div class="main_container d-flex">
 
-        <div class="col-4">
-            <div class="chat_left d-flex justify-content-between align-items-center bg-body-secondary px-2">
-                <div class="user_profile">
-                    <img class="rounded-5" :src="user.avatar" alt="">
-                    <span class="px-2">{{ user.name }}</span>
-                </div>
-                <div class="user_icons d-flex align-items-center">
-                    <i class="fa-solid fa-circle-notch p-2 text-secondary"></i>
-                    <i class="fa-solid fa-message p-2 text-secondary"></i>
-                    <i class="fa-solid fa-ellipsis-vertical p-2 text-secondary"></i>
-                </div>
-            </div>
-            
-            <div class="notific_desk d-flex align-items-center px-3">
-                <i class="fa-solid fa-bell-slash"></i>
-                <div class="notific_icon px-3">
-                    <div class="fw-bold">
-                        Ricevi notifiche di nuovi messaggi
-                    </div>
-                    <a class="text-secondary" href="">Attiva notifiche desktop</a>
-                </div>
-            </div>
-            
-            <div class="input_search input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass text-secondary"></i></span>
-                <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="addon-wrapping">
-            </div>
-            
-            <div class="slider_user">
-                <div
-                    v-for="item in contacts" 
-                    :key="item.avatar"
-                    class="d-flex justify-content-between p-2"
-                >
+            <!-- SIDE CHAT -->
 
-                    <div class="d-flex align-items-center">
-                        <img class="rounded-5" :src="item.avatar" :alt="item.avatar">
-                        <div class="d-flex flex-column p-2">
-                            <div class="f-4">{{ item.name }}</div>
-                            <div class="text">{{ item.messages[item.messages.length - 1].message }}</div>
-                        </div>
-                    </div>
+            <div class="side_chat">
 
-                    <div class="text">{{ item.messages[item.messages.length - 1].date }}</div>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- CONTENT CHAT-RIGHT -->
-
-        <div class="col-8">
-            <div class="content_chat position-relative">
-    
-                <div class="content_header d-flex justify-content-between">
+                <div class="chat_header d-flex justify-content-between">
     
                     <div class="user d-flex align-items-center">
-                        <img src="" alt="">
+                        <img :src="user.avatar" alt="avatar_user">
                         <div class="name_user">Sofia</div>
+                    </div>
+                    <div class="command d-flex align-items-center">
+                        <i class="fa-solid fa-circle-notch p-2 text-secondary"></i>
+                        <i class="fa-solid fa-message p-2 text-secondary"></i>
+                        <i class="fa-solid fa-ellipsis-vertical p-2 text-secondary"></i>
+                    </div>
+    
+                </div>
+                
+                <!-- NOTIFICATIONS BANNER -->
+                
+                <div class="banner d-flex align-items-center px-3">
+                    <i class="fa-solid fa-bell-slash"></i>
+                    <div class="notific_icon px-3">
+                        <div class="fw-bold">
+                            Ricevi notifiche di nuovi messaggi
+                        </div>
+                        <a class="text-secondary" href="">Attiva notifiche desktop</a>
+                    </div>
+                </div>
+              
+    
+                <!-- SEARCH BAR -->
+
+                <div class="search input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass text-secondary"></i></span>
+                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Cerca o inizia una nuova chat"  aria-describedby="addon-wrapping" v-model="searchStr">
+                </div>
+    
+                <!-- CHAT LIST -->
+
+                <div class="chats">
+                    <div 
+                        v-for="(card, index) in contacts" 
+                        :key="card.avatar"
+                        class="card_chat d-flex justify-content-between p-2"
+                        :class="{selected: index == activeIndex}"
+                        @click="currentChat(index)" 
+                    >
+                        <div class="user_img_chat d-flex align-items-center">
+                            <img :src="card.avatar" alt="avatar_user">
+                            <div class="d-flex flex-column ">
+                                <div class="name_user">{{ card.name }}</div>
+                                <div class="mess_preview"> {{ card.messages[card.messages.length - 1].message }} </div>
+                            </div>
+                        </div>
+                
+                        <div class="mess_details">
+                            {{ card.messages[card.messages.length - 1].date }}
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+    
+            <!-- MAIN CHAT -->
+            
+            <div class="main_chat position-relative">
+    
+                <div class="main_header d-flex justify-content-between">
+    
+                    <div class="user d-flex align-items-center">
+                        <img v-for="(element, i) in contacts" :src="element.avatar" alt="avatar_user" :class="{active: i == activeIndex}">
+                        <div class="name_user_discussion" v-for="(element, i) in contacts" :class="{active: i == activeIndex}"> {{ element.name }} </div>
                     </div>
                     <div class="command d-flex align-items-center">
                         <i class="fa-solid fa-magnifying-glass p-2 text-secondary"></i>
@@ -97,34 +110,34 @@
     
                 </div>
     
-                <!-- CHAT MESSAGE -->
+                <!-- CHAT MESSAGES -->
 
                 <div class="discussion d-flex flex-column justify-content-end">    
-                    <div class="mess_sent">Messaggio inviato</div>
-                    <div class="mess_received">messaggio ricevuto</div>
+                    <div class="mess_sent"> Ciao </div>
+                    <div class="mess_received"> Ciao anche a te </div>
                 </div>
     
-                <!-- CHAT WINDOW -->
+                <!-- INPUT CHAT TEXT -->
     
                 <div class="input_message">
-                    <div class="input-group bar_end">
+                    <div class="input-group">
                         <span class="input-group-text" id="basic-addon1">
-                            <i class="fa-regular fa-face-smile"></i>
+                            <i class="fa-regular fa-face-smile text-secondary"></i>
                         </span>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                            aria-describedby="basic-addon1"
-                        >
+                        <input type="text" class="form-control" placeholder="Inserisci un messaggio" aria-label="Inserisci un messaggio" aria-describedby="basic-addon1">
                         <span class="input-group-text" id="basic-addon1">
-                            <i class="fa-solid fa-microphone"></i>
+                            <i class="fa-solid fa-microphone text-secondary"></i>
                         </span>
                     </div>
                 </div>
     
             </div>
-    
-    
         </div>
-
     </div>
+
 </body>
 </html>
+
+
+
+

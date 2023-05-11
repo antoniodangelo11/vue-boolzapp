@@ -1,8 +1,8 @@
 const app = Vue.createApp({
     data() {
       return {
-        newMessage: '',
         activeIndex: 0,
+        newMessage: '',
         searchStr: '',
         user: {
             name: 'Sofia',
@@ -174,18 +174,9 @@ const app = Vue.createApp({
         };
     },
     methods: {
-
-        // addUser() {
-        //     this.user.unshift({
-        //         name: 'User Name',
-        //         avatar: 'img/avatar_io.jpg',
-
-        //     });
-        // },
-        
-        // clickActiveImg(index) {
-        //   this.activeIndex = index;
-        // },
+        currentChat(i) {
+            this.activeIndex = i
+        },
     },
 });
 

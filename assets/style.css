@@ -1,91 +1,129 @@
 body {
-    display: grid;
-    place-items: center;
     height: 100vh;
     background: linear-gradient(
         to bottom,
         #009688 20%,
-        #D8DBD5 20%
+        #DBDBD3 20%
     );
 }
 
 .container {
     height: 90%;
+}
+
+.main_container {
+    height: 90%;
     width: 100%;
 }
 
-/* CONTENT CHAT-LEFT */
+/* SIDE CHAT */
 
-.chat_left {
+.side_chat {
+    background-color: rgb(255, 255, 255);
+    width: 40%;
+    height: 100%;
+    padding-right: 0;
+}
+
+.chat_header {
+    background-color: rgb(234, 234, 234);
     height: 4rem;
+    padding-inline: .5rem;
 }
 
-.notific_desk {
-    background-color: rgb(120, 172, 231);
+.user img {
+    height: 3.5em;
+    padding: .3rem;
+    border-radius: 5rem;
 }
 
-.input_search {
-    height: 2rem;
+.side_chat .banner {
+    height: 5rem;
+    background-color: rgb(142, 218, 252);
 }
 
-.user_profile img {
-    width: 15%;
-}
-
-.slider_user {
-    height: calc(100% - 168px);
+.side_chat .chats {
+    height: calc(100% - 182px);
     overflow-y: auto;
 }
 
-.slider_user img {
-    width: 15%;
+.side_chat .card_chat.selected {
+    background-color: rgb(229, 221, 213);
 }
 
-.text {
-    font-size: 10px;
+.side_chat .card_chat img {
+    height: 4.5em;
+    padding: .3rem;
+    border-radius: 10rem;
 }
 
-/* CONTENT CHAT RIGHT */
+.card_chat .mess_preview, 
+.card_chat .mess_details {
+    font-size: .8em;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-.content_chat {
-    background-image: url("../img/mine.jpg");
+/* MAIN CHAT */
+
+.main_chat {
+    background-image: url(../img/mine.jpg);
+    width: 60%;
     height: 100%;
     padding-left: 0;
 }
 
-.content_header {
+.main_header {
     height: 4rem;
-    background-color: #EAEAEA;
+    background-color: rgb(234, 234, 234);
     border-left: 1px solid white;
     padding-inline: .5rem;
 
 }
 
-.discussion {
+.main_header .user img {
+    display: none;
+}
+
+.main_header .user img.active {
+    display: block;
+}
+
+.name_user_discussion {
+    display: none;
+}
+
+.name_user_discussion.active {
+    display: block;
+}
+
+.main_chat .discussion {
     height: calc(100% - 102px);
     padding-inline: 1rem;
     overflow-y: scroll;
 }
 
-.mess_sent {
-    background-color: #d5f9ba;
-    align-self: flex-end;
+.discussion .mess_sent {
+    background-color: rgb(213, 249, 186);
+    align-self: start;
     max-width: 85%;
     padding: .5rem 1.5rem;
     margin-bottom: 1rem;
     border-radius: 10px;
 }
 
-.mess_received {
-    background-color: white;
-    align-self: flex-start;
+.discussion .mess_received {
+    background-color: rgb(255, 255, 255);
+    align-self: end;
     max-width: 85%;
     padding: .5rem 1.5rem;
     margin-bottom: 1rem;
     border-radius: 10px;
 }
 
-.bar_end {
+.main_chat .input-group {
     position: absolute;
     bottom: 0;
     right: 0;
