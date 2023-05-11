@@ -47,11 +47,11 @@ body {
     overflow-y: auto;
 }
 
-.side_chat .card_chat.selected {
+.side_chat .contact_chat.selected {
     background-color: rgb(229, 221, 213);
 }
 
-.side_chat .card_chat img {
+.user_avatar img {
     height: 4.5em;
     padding: .3rem;
     border-radius: 10rem;
@@ -61,8 +61,8 @@ body {
     cursor: pointer;
 }
 
-.card_chat .mess_preview, 
-.card_chat .mess_details {
+.contact_chat .msg_preview, 
+.contact_chat .msg_details {
     font-size: .8em;
     max-width: 100px;
     white-space: nowrap;

@@ -63,27 +63,27 @@
 
                 <div class="search input-group flex-nowrap">
                     <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass text-secondary"></i></span>
-                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Cerca o inizia una nuova chat"  aria-describedby="addon-wrapping" v-model="searchStr">
+                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Cerca o inizia una nuova chat"  aria-describedby="addon-wrapping">
                 </div>
     
                 <!-- CHAT LIST -->
 
                 <div class="chats">
                     <div 
-                        class="card_chat d-flex justify-content-between p-2"
+                        class="contact_chat d-flex justify-content-between p-2"
                         v-for="(contact, index) in contacts" 
                         :key="contact.avatar"
                         @click="activeChat(index)" 
                     >
-                        <div class="user_img_chat d-flex align-items-center">
+                        <div class="user_avatar d-flex align-items-center">
                             <img :src="contact.avatar" :alt="contact.avatar">
                             <div class="d-flex flex-column ">
                                 <div class="name_user">{{ contact.name }}</div>
-                                <div class="mess_preview"> {{ contact.messages[contact.messages.length - 1].message }} </div>
+                                <div class="msg_preview"> {{ contact.messages[contact.messages.length - 1].message }} </div>
                             </div>
                         </div>
                 
-                        <div class="mess_details">
+                        <div class="msg_details">
                             {{ contact.messages[contact.messages.length - 1].date }}
                         </div>
                     </div>
