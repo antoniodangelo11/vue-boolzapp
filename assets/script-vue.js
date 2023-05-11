@@ -183,11 +183,19 @@ const app = Vue.createApp({
                 date: '10/01/2020 15:30:55',
                 message: newMsg,
                 status: 'sent',
-            }
-            this.contacts[this.activeIndex].messages.push(newMessage)
+            };
+            this.contacts[this.activeIndex].messages.push(newMessage);
+            setTimeout(this.cpuMsg, 1000);
         },
 
-
+        cpuMsg() {
+            let cpuMsg = {
+                date: '10/01/2020 15:30:55',
+                message: 'ok',
+                status: 'received',
+            };
+            this.contacts[this.activeIndex].messages.push(cpuMsg);
+        }
     },
 });
 
