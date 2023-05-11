@@ -70,21 +70,21 @@
 
                 <div class="chats">
                     <div 
-                        v-for="(item, index) in contacts" 
-                        :key="item.avatar"
                         class="card_chat d-flex justify-content-between p-2"
+                        v-for="(contact, index) in contacts" 
+                        :key="contact.avatar"
                         @click="activeChat(index)" 
                     >
                         <div class="user_img_chat d-flex align-items-center">
-                            <img :src="item.avatar" :alt="item.avatar">
+                            <img :src="contact.avatar" :alt="contact.avatar">
                             <div class="d-flex flex-column ">
-                                <div class="name_user">{{ item.name }}</div>
-                                <div class="mess_preview"> {{ item.messages[item.messages.length - 1].message }} </div>
+                                <div class="name_user">{{ contact.name }}</div>
+                                <div class="mess_preview"> {{ contact.messages[contact.messages.length - 1].message }} </div>
                             </div>
                         </div>
                 
                         <div class="mess_details">
-                            {{ item.messages[item.messages.length - 1].date }}
+                            {{ contact.messages[contact.messages.length - 1].date }}
                         </div>
                     </div>
                 </div>
@@ -112,8 +112,9 @@
                 <!-- CHAT MESSAGES -->
 
                 <div class="discussion d-flex flex-column justify-content-end">    
-                    <div class="msg_sent"> Hi! </div>
-                    <div class="msg_received"> Hola! </div>
+                    <div 
+                    class="msg_sent">Hi!</div>
+                    <div class="msg_received">Hola!</div>
                 </div>
     
                 <!-- INPUT CHAT TEXT -->

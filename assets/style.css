@@ -57,6 +57,10 @@ body {
     border-radius: 10rem;
 }
 
+.chats {
+    cursor: pointer;
+}
+
 .card_chat .mess_preview, 
 .card_chat .mess_details {
     font-size: .8em;
