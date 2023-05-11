@@ -174,7 +174,7 @@ const app = Vue.createApp({
         };
     },
     methods: {
-        currentChat(index) {
+        activeChat(index) {
             this.activeIndex = index
         },
     },
