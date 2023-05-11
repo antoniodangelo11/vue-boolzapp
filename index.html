@@ -70,22 +70,22 @@
 
                 <div class="chats">
                     <div 
-                        v-for="(card, index) in contacts" 
-                        :key="card.avatar"
+                        v-for="(item, index) in contacts" 
+                        :key="item.avatar"
                         class="card_chat d-flex justify-content-between p-2"
                         :class="{selected: index == activeIndex}"
                         @click="activeChat(index)" 
                     >
                         <div class="user_img_chat d-flex align-items-center">
-                            <img :src="card.avatar" alt="avatar_user">
+                            <img :src="item.avatar" alt="avatar_user">
                             <div class="d-flex flex-column ">
-                                <div class="name_user">{{ card.name }}</div>
-                                <div class="mess_preview"> {{ card.messages[card.messages.length - 1].message }} </div>
+                                <div class="name_user">{{ item.name }}</div>
+                                <div class="mess_preview"> {{ item.messages[item.messages.length - 1].message }} </div>
                             </div>
                         </div>
                 
                         <div class="mess_details">
-                            {{ card.messages[card.messages.length - 1].date }}
+                            {{ item.messages[item.messages.length - 1].date }}
                         </div>
                     </div>
                 </div>
@@ -99,8 +99,18 @@
                 <div class="main_header d-flex justify-content-between">
     
                     <div class="user d-flex align-items-center">
-                        <img v-for="(element, i) in contacts" :src="element.avatar" alt="avatar_user" :class="{active: i == activeIndex}">
-                        <div class="name_user_discussion" v-for="(element, i) in contacts" :class="{active: i == activeIndex}"> {{ element.name }} </div>
+                        <img 
+                            v-for="(avatar, index) in contacts" 
+                            :src="avatar.avatar" 
+                            alt="avatar_user" 
+                            :class="{active: index == activeIndex}"
+                        >
+                        <div 
+                            class="name_user_discussion" 
+                            v-for="(avatar, index) in contacts" 
+                            :class="{active: index == activeIndex}"
+                        > 
+                        {{ avatar.name }}</div>
                     </div>
                     <div class="command d-flex align-items-center">
                         <i class="fa-solid fa-magnifying-glass p-2 text-secondary"></i>
