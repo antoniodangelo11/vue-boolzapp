@@ -114,11 +114,11 @@
                 <div class="discussion d-flex flex-column justify-content-end">    
                     <div 
                         class="msg position-relative"
-                        v-for="message in contacts[activeIndex].messages"
-                        :class="message.status == 'sent' ? 'sent' : 'received'"
+                        v-for="msg in contacts[activeIndex].messages"
+                        :class="msg.status == 'sent' ? 'sent' : 'received'"
                         
                     >
-                        {{ message.message }} <span class="msg_date">{{ message.date }}</span>
+                        {{ msg.message }} <span class="msg_date">{{ msg.date }}</span>
                     </div>
                 </div>
     
@@ -129,7 +129,16 @@
                         <span class="input-group-text" id="basic-addon1">
                             <i class="fa-regular fa-face-smile text-secondary"></i>
                         </span>
-                        <input type="text" class="form-control" placeholder="Inserisci un messaggio" aria-label="Inserisci un messaggio" aria-describedby="basic-addon1">
+                        
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Inserisci un messaggio" 
+                            aria-label="Inserisci un messaggio" aria-describedby="basic-addon1" 
+                            v-model="newMessage" 
+                            @keyup.enter="addNewMessage(newMessage)"
+                        >
+                        
                         <span class="input-group-text" id="basic-addon1">
                             <i class="fa-solid fa-microphone text-secondary"></i>
                         </span>

@@ -177,6 +177,17 @@ const app = Vue.createApp({
         activeChat(index) {
             this.activeIndex = index
         },
+
+        addNewMessage(newMsg) {
+            let newMessage = {
+                date: '10/01/2020 15:30:55',
+                message: newMsg,
+                status: 'sent',
+            }
+            this.contacts[this.activeIndex].messages.push(newMessage)
+        },
+
+
     },
 });
 
