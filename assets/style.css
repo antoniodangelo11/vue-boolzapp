@@ -9,6 +9,11 @@ body {
     );
 }
 
+.container {
+    height: 90%;
+    width: 100%;
+}
+
 .chat_left {
     height: 4rem;
 }
@@ -27,7 +32,7 @@ body {
 
 .slider_user {
     height: calc(100% - 168px);
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .slider_user img {
@@ -38,36 +43,48 @@ body {
     font-size: 10px;
 }
 
-.chat_right {
+/* __________________________________________________________ */
+.content_chat {
     background-image: url("../img/mine.jpg");
     height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
+    padding-left: 0;
 }
 
-.chat_msg {
-    height: 70%;
-    display: flex;
-    justify-content: space-around;
+.content_header {
+    height: 4rem;
+    background-color: #EAEAEA;
+    border-left: 1px solid white;
+    padding-inline: .5rem;
+
 }
 
-.chat_white {
-    background-color: #4af805b9;
-}
-
-.chat_green {
-    background-color: white;
-}
-
-.controls {
-    background-color: white;
-}
-
-.controls i {
+.content_chat .discussion {
+    height: calc(100% - 102px);
     padding-inline: 1rem;
+    overflow-y: scroll;
 }
 
-.controls input {
-    width: 80%;
+.discussion .mess_sent {
+    background-color: #d5f9ba;
+    align-self: flex-end;
+    max-width: 85%;
+    padding: .5rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+
+.discussion .mess_received {
+    background-color: white;
+    align-self: flex-start;
+    max-width: 85%;
+    padding: .5rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+
+.content_chat .input-group {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }

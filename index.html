@@ -27,6 +27,8 @@
 <body>
     <div class="bg-light d-flex container p-0" id="app">
         
+        <!-- CONTENT CHAT-LEFT -->
+
         <div class="col-4">
             <div class="chat_left d-flex justify-content-between align-items-center bg-body-secondary px-2">
                 <div class="user_profile">
@@ -58,41 +60,69 @@
             <div class="slider_user">
                 <div
                     v-for="item in contacts" 
-                    class="d-flex align-items-center"
+                    :key="item.avatar"
+                    class="d-flex justify-content-between p-2"
                 >
-                
-                    <img 
-                        :src="item.avatar" 
-                        :alt="item.avatar"
-                        class="rounded-5 py-1 px-2"
-                    >
-                
-                    <p class="fs-6">{{ item.name }}</p>
-                    <div class="text">
-                        <p>{{ item.messages[item.messages.length - 1].message }}</p>
-                        <p>{{ item.messages[item.messages.length - 1].date }}</p>
+
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-5" :src="item.avatar" :alt="item.avatar">
+                        <div class="d-flex flex-column p-2">
+                            <div class="f-4">{{ item.name }}</div>
+                            <div class="text">{{ item.messages[item.messages.length - 1].message }}</div>
+                        </div>
                     </div>
+
+                    <div class="text">{{ item.messages[item.messages.length - 1].date }}</div>
+
                 </div>
             </div>
         </div>
 
+        <!-- CONTENT CHAT-RIGHT -->
+
         <div class="col-8">
-            <div class="chat_right">
-                <div class="chat_msg">
-                    <div class="chat_white">
-
+            <div class="content_chat position-relative">
+    
+                <div class="content_header d-flex justify-content-between">
+    
+                    <div class="user d-flex align-items-center">
+                        <img src="" alt="">
+                        <div class="name_user">Sofia</div>
                     </div>
-                    <div class="chat_green">
+                    <div class="command d-flex align-items-center">
+                        <i class="fa-solid fa-circle-notch p-2"></i>
+                        <i class="fa-solid fa-message p-2"></i>
+                        <i class="fa-solid fa-ellipsis-vertical p-2"></i>
+                    </div>
+    
+                </div>
+    
+                <!-- vero contenuto della chat  -->
 
+                <div class="discussion d-flex flex-column justify-content-end">    
+                    <div class="mess_sent">Messaggio inviato</div>
+                    <div class="mess_received">messaggio ricevuto</div>
+                </div>
+    
+                <!-- input messaggio con tasto invio e emoji  -->
+    
+                <div class="input_message">
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa-regular fa-face-smile"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                            aria-describedby="basic-addon1"
+                        >
+                        <span class="input-group-text" id="basic-addon1">
+                            <i class="fa-solid fa-microphone"></i>
+                        </span>
                     </div>
                 </div>
-                
-                <div class="controls">
-                    <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder="New message">
-                    <i class="fa-solid fa-microphone"></i>
-                </div>
+    
             </div>
+    
+    
         </div>
 
     </div>
