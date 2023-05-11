@@ -62,8 +62,16 @@
                 <!-- SEARCH BAR -->
 
                 <div class="search input-group flex-nowrap">
+                    
                     <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass text-secondary"></i></span>
-                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Cerca o inizia una nuova chat"  aria-describedby="addon-wrapping">
+                    
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        placeholder="Cerca o inizia una nuova chat" 
+                        aria-label="Cerca o inizia una nuova chat"  aria-describedby="addon-wrapping"
+                        v-model="searchStr"
+                    >
                 </div>
     
                 <!-- CHAT LIST -->
@@ -71,8 +79,8 @@
                 <div class="chats">
                     <div 
                         class="contact_chat d-flex justify-content-between p-2"
-                        v-for="(contact, index) in contacts" 
-                        :key="contact.avatar"
+                        v-for="(contact, index) in filter" 
+                        :key="index"
                         @click="activeChat(index)" 
                     >
                         <div class="user_avatar d-flex align-items-center">

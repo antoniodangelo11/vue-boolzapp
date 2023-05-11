@@ -195,7 +195,14 @@ const app = Vue.createApp({
                 status: 'received',
             };
             this.contacts[this.activeIndex].messages.push(cpuMsg);
-        }
+        },
+    },
+    computed: {
+        filter(){
+            return this.contacts.filter((contacts) => {
+                return contacts.name.toLowerCase().includes(this.searchStr.toLowerCase())
+            },
+        )}
     },
 });
 
