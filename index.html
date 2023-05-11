@@ -80,7 +80,7 @@
                     <div 
                         class="contact_chat d-flex justify-content-between p-2"
                         v-for="(contact, index) in filter" 
-                        :key="index"
+                        :key="contact.name"
                         @click="activeChat(index)" 
                     >
                         <div class="user_avatar d-flex align-items-center">
@@ -123,6 +123,7 @@
                     <div 
                         class="msg position-relative"
                         v-for="msg in contacts[activeIndex].messages"
+                        :key="msg.date"
                         :class="msg.status == 'sent' ? 'sent' : 'received'"
                         
                     >
