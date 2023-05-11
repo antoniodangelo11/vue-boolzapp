@@ -37,7 +37,7 @@ body {
     border-radius: 5rem;
 }
 
-.side_chat .banner {
+.side_chat .notify {
     height: 5rem;
     background-color: rgb(142, 218, 252);
 }
@@ -93,7 +93,7 @@ body {
     overflow-y: scroll;
 }
 
-.discussion .msg_sent {
+.discussion .msg.sent {
     background-color: rgb(213, 249, 186);
     align-self: flex-end;
     max-width: 85%;
@@ -102,7 +102,7 @@ body {
     border-radius: 10px;
 }
 
-.discussion .msg_received {
+.discussion .msg.received {
     background-color: rgb(255, 255, 255);
     align-self: flex-start;
     max-width: 85%;

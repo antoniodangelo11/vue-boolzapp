@@ -48,7 +48,7 @@
                 
                 <!-- NOTIFICATIONS BANNER -->
                 
-                <div class="banner d-flex align-items-center px-3">
+                <div class="notify d-flex align-items-center px-3">
                     <i class="fa-solid fa-bell-slash"></i>
                     <div class="notific_icon px-3">
                         <div class="fw-bold">
@@ -113,8 +113,13 @@
 
                 <div class="discussion d-flex flex-column justify-content-end">    
                     <div 
-                    class="msg_sent">Hi!</div>
-                    <div class="msg_received">Hola!</div>
+                        class="msg"
+                        v-for="message in contacts[activeIndex].messages"
+                        :class="message.status == 'sent' ? 'sent' : 'received'"
+                        
+                    >
+                        {{ message.message }}
+                    </div>
                 </div>
     
                 <!-- INPUT CHAT TEXT -->
