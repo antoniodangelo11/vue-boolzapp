@@ -97,7 +97,7 @@ body {
     background-color: rgb(213, 249, 186);
     align-self: flex-end;
     max-width: 85%;
-    padding: .5rem 1.5rem;
+    padding: 1.5rem 2.5rem;
     margin-bottom: 1rem;
     border-radius: 10px;
 }
@@ -106,9 +106,16 @@ body {
     background-color: rgb(255, 255, 255);
     align-self: flex-start;
     max-width: 85%;
-    padding: .5rem 1.5rem;
+    padding: 1.5rem 2.5rem;
     margin-bottom: 1rem;
     border-radius: 10px;
+}
+
+.msg .msg_date {
+    font-size: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 5px;
 }
 
 .main_chat .input-group {

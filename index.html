@@ -113,12 +113,12 @@
 
                 <div class="discussion d-flex flex-column justify-content-end">    
                     <div 
-                        class="msg"
+                        class="msg position-relative"
                         v-for="message in contacts[activeIndex].messages"
                         :class="message.status == 'sent' ? 'sent' : 'received'"
                         
                     >
-                        {{ message.message }}
+                        {{ message.message }} <span class="msg_date">{{ message.date }}</span>
                     </div>
                 </div>
     
