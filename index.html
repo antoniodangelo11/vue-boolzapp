@@ -32,7 +32,7 @@
 
             <div class="side_chat">
 
-                <div class="chat_header d-flex justify-content-between">
+                <div class="side_header d-flex justify-content-between">
     
                     <div class="user d-flex align-items-center">
                         <img :src="user.avatar" alt="avatar_user">
@@ -73,11 +73,10 @@
                         v-for="(item, index) in contacts" 
                         :key="item.avatar"
                         class="card_chat d-flex justify-content-between p-2"
-                        :class="{selected: index == activeIndex}"
                         @click="activeChat(index)" 
                     >
                         <div class="user_img_chat d-flex align-items-center">
-                            <img :src="item.avatar" alt="avatar_user">
+                            <img :src="item.avatar" :alt="item.avatar">
                             <div class="d-flex flex-column ">
                                 <div class="name_user">{{ item.name }}</div>
                                 <div class="mess_preview"> {{ item.messages[item.messages.length - 1].message }} </div>
@@ -99,18 +98,8 @@
                 <div class="main_header d-flex justify-content-between">
     
                     <div class="user d-flex align-items-center">
-                        <img 
-                            v-for="(avatar, index) in contacts" 
-                            :src="avatar.avatar" 
-                            alt="avatar_user" 
-                            :class="{active: index == activeIndex}"
-                        >
-                        <div 
-                            class="name_user_discussion" 
-                            v-for="(avatar, index) in contacts" 
-                            :class="{active: index == activeIndex}"
-                        > 
-                        {{ avatar.name }}</div>
+                        <img :src="contacts[activeIndex].avatar" alt="">
+                        <div>{{ contacts[activeIndex].name }}</div>
                     </div>
                     <div class="command d-flex align-items-center">
                         <i class="fa-solid fa-magnifying-glass p-2 text-secondary"></i>
@@ -123,8 +112,8 @@
                 <!-- CHAT MESSAGES -->
 
                 <div class="discussion d-flex flex-column justify-content-end">    
-                    <div class="mess_sent"> Ciao </div>
-                    <div class="mess_received"> Ciao anche a te </div>
+                    <div class="msg_sent"> Hi! </div>
+                    <div class="msg_received"> Hola! </div>
                 </div>
     
                 <!-- INPUT CHAT TEXT -->

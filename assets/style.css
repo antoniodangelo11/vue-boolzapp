@@ -25,7 +25,7 @@ body {
     padding-right: 0;
 }
 
-.chat_header {
+.side_header {
     background-color: rgb(234, 234, 234);
     height: 4rem;
     padding-inline: .5rem;
@@ -83,29 +83,13 @@ body {
 
 }
 
-.main_header .user img {
-    display: none;
-}
-
-.main_header .user img.active {
-    display: block;
-}
-
-.name_user_discussion {
-    display: none;
-}
-
-.name_user_discussion.active {
-    display: block;
-}
-
 .main_chat .discussion {
     height: calc(100% - 102px);
     padding-inline: 1rem;
     overflow-y: scroll;
 }
 
-.discussion .mess_sent {
+.discussion .msg_sent {
     background-color: rgb(213, 249, 186);
     align-self: flex-end;
     max-width: 85%;
@@ -114,7 +98,7 @@ body {
     border-radius: 10px;
 }
 
-.discussion .mess_received {
+.discussion .msg_received {
     background-color: rgb(255, 255, 255);
     align-self: flex-start;
     max-width: 85%;
