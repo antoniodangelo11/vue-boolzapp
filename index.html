@@ -74,7 +74,7 @@
                         :key="card.avatar"
                         class="card_chat d-flex justify-content-between p-2"
                         :class="{selected: index == activeIndex}"
-                        @click="currentChat(index)" 
+                        @click="activeChat(index)" 
                     >
                         <div class="user_img_chat d-flex align-items-center">
                             <img :src="card.avatar" alt="avatar_user">
