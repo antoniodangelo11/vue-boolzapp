@@ -57,8 +57,12 @@ body {
     border-radius: 10rem;
 }
 
-.chats {
+.chats .contact_chat {
     cursor: pointer;
+}
+
+.chats .contact_chat:hover {
+    background-color: rgb(176, 177, 177);
 }
 
 .contact_chat .msg_preview, 
