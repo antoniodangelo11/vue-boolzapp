@@ -176,10 +176,6 @@ const app = Vue.createApp({
     },
     
     methods: {
-        activeChat(element) {
-            this.activeIndex = this.contacts.indexOf(element);
-        },
-
         addNewMessage(newMsg, index) {
             let newMessage = {
                 date: '10/01/2020 15:30:55',
@@ -187,7 +183,7 @@ const app = Vue.createApp({
                 status: 'sent',
             };
             this.contacts[index].messages.push(newMessage);
-            this.newMessage = '',
+            this.newMessage = '';
             
             setTimeout(() => {
                 let cpuMsg = {
@@ -210,10 +206,14 @@ const app = Vue.createApp({
         extractNowDateAndTime(dateNow) {
             return luxon.DateTime.now(dateNow).toFormat('dd/MM/yyyy HH:mm:ss');
         },
+
+        activeChat(index) {
+            this.activeIndex = this.contacts.indexOf(index);
+        },
     },
     
     computed: {
-        filterContacts(){
+        filterContacts() {
             return this.contacts.filter((contacts) => {
                 return contacts.name.toLowerCase().includes(this.searchStr.toLowerCase());
             },
