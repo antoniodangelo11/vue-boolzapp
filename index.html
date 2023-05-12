@@ -155,7 +155,7 @@
                             placeholder="Inserisci un messaggio" 
                             aria-label="Inserisci un messaggio" aria-describedby="basic-addon1" 
                             v-model="newMessage" 
-                            @keyup.enter="addNewMessage(newMessage, activeIndex)"
+                            @keyup.enter="addNewMessage(newMessage, dateNow, activeIndex)"
                         >
                         
                         <span class="input-group-text" id="basic-addon1">

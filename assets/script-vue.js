@@ -176,18 +176,18 @@ const app = Vue.createApp({
     },
     
     methods: {
-        addNewMessage(newMsg, index) {
-            let newMessage = {
-                date: '10/01/2020 15:30:55',
+        addNewMessage(newMsg, dateNowX, index) {
+            let newMess = {
+                date: dateNowX,
                 message: newMsg,
                 status: 'sent',
             };
-            this.contacts[index].messages.push(newMessage);
+            this.contacts[index].messages.push(newMess);
             this.newMessage = '';
             
             setTimeout(() => {
                 let cpuMsg = {
-                    date: '10/01/2020 15:30:55',
+                    date: dateNowX,
                     message: 'ok',
                     status: 'received',
                 };
@@ -203,8 +203,8 @@ const app = Vue.createApp({
             return date.slice(11, 16);
         },
 
-        extractNowDateAndTime(dateNow) {
-            return luxon.DateTime.now(dateNow).toFormat('dd/MM/yyyy HH:mm:ss');
+        extractNowDateAndTime(dateNowX) {
+            return luxon.DateTime.now(dateNowX).toFormat('dd/MM/yyyy HH:mm:ss');
         },
 
         activeChat(index) {
