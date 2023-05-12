@@ -174,8 +174,8 @@ const app = Vue.createApp({
         };
     },
     methods: {
-        activeChat(index) {
-            this.activeIndex = index
+        activeChat(element) {
+            this.activeIndex = this.contacts.indexOf(element);
         },
 
         addNewMessage(newMsg) {
@@ -195,6 +195,14 @@ const app = Vue.createApp({
                 status: 'received',
             };
             this.contacts[this.activeIndex].messages.push(cpuMsg);
+        },
+
+        extractTimefromDate(date) {
+            return date.slice(0, 10);
+        },
+
+        extractDatefromTime(date) {
+            return date.slice(11, 16);
         },
     },
     computed: {

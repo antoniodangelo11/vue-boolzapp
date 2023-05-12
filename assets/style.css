@@ -42,6 +42,16 @@ body {
     background-color: rgb(142, 218, 252);
 }
 
+.notify .bell_notify {
+    height: 3rem;
+    background-color: rgb(237, 247, 255);
+}
+
+.bell_notify .bell_icon {
+    color:rgb(124, 192, 237); 
+    font-size: 16px;
+}
+
 .side_chat .chats {
     height: calc(100% - 182px);
     overflow-y: auto;
@@ -61,7 +71,8 @@ body {
     cursor: pointer;
 }
 
-.chats .contact_chat:hover {
+/* QUESTA CLASSE E' ATTIVA DA JS */
+.chats .contact_chat.active {
     background-color: rgb(176, 177, 177);
 }
 
