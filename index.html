@@ -18,6 +18,9 @@
     <!-- LINK VUE.JS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
 
+    <!-- LINK LUXON -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js" defer></script>
+
     <!-- LINK SCRIPT-VUE.JS -->
     <script src="assets/script-vue.js" defer></script>
 
@@ -84,7 +87,7 @@
                 <div class="chats">
                     <div 
                         class="contact_chat d-flex justify-content-between p-2"
-                        v-for="(contact, index) in filter" 
+                        v-for="(contact, index) in filterContacts" 
                         :key="contact.name"
                         :class= "{active: index == activeIndex}"
                         @click="activeChat(contact)" 
@@ -114,6 +117,7 @@
                     <div class="user d-flex align-items-center">
                         <img :src="contacts[activeIndex].avatar" alt="">
                         <div>{{ contacts[activeIndex].name }}</div>
+                        <div>{{ extractNowDateAndTime(dateNow) }}</div>
                     </div>
                     <div class="command d-flex align-items-center">
                         <i class="fa-solid fa-magnifying-glass p-2 text-secondary"></i>
@@ -151,7 +155,7 @@
                             placeholder="Inserisci un messaggio" 
                             aria-label="Inserisci un messaggio" aria-describedby="basic-addon1" 
                             v-model="newMessage" 
-                            @keyup.enter="addNewMessage(newMessage)"
+                            @keyup.enter="addNewMessage(newMessage, activeIndex)"
                         >
                         
                         <span class="input-group-text" id="basic-addon1">

@@ -4,6 +4,7 @@ const app = Vue.createApp({
         activeIndex: 0,
         newMessage: '',
         searchStr: '',
+        dateNow: '',
         user: {
             name: 'Sofia',
             avatar: 'img/avatar_io.jpg',
@@ -179,23 +180,23 @@ const app = Vue.createApp({
             this.activeIndex = this.contacts.indexOf(element);
         },
 
-        addNewMessage(newMsg) {
+        addNewMessage(newMsg, index) {
             let newMessage = {
                 date: '10/01/2020 15:30:55',
                 message: newMsg,
                 status: 'sent',
             };
-            this.contacts[this.activeIndex].messages.push(newMessage);
-            setTimeout(this.cpuMsg, 1000);
-        },
-
-        cpuMsg() {
-            let cpuMsg = {
-                date: '10/01/2020 15:30:55',
-                message: 'ok',
-                status: 'received',
-            };
-            this.contacts[this.activeIndex].messages.push(cpuMsg);
+            this.contacts[index].messages.push(newMessage);
+            this.newMessage = '',
+            
+            setTimeout(() => {
+                let cpuMsg = {
+                    date: '10/01/2020 15:30:55',
+                    message: 'ok',
+                    status: 'received',
+                };
+                this.contacts[index].messages.push(cpuMsg);
+            }, 1000);
         },
 
         extractTimefromDate(date) {
@@ -205,12 +206,16 @@ const app = Vue.createApp({
         extractDatefromTime(date) {
             return date.slice(11, 16);
         },
+
+        extractNowDateAndTime(dateNow) {
+            return luxon.DateTime.now(dateNow).toFormat('dd/MM/yyyy HH:mm:ss');
+        },
     },
     
     computed: {
-        filter(){
+        filterContacts(){
             return this.contacts.filter((contacts) => {
-                return contacts.name.toLowerCase().includes(this.searchStr.toLowerCase())
+                return contacts.name.toLowerCase().includes(this.searchStr.toLowerCase());
             },
         )}
     },
