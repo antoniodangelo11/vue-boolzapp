@@ -173,6 +173,7 @@ const app = Vue.createApp({
         ],
         };
     },
+    
     methods: {
         activeChat(element) {
             this.activeIndex = this.contacts.indexOf(element);
@@ -205,6 +206,7 @@ const app = Vue.createApp({
             return date.slice(11, 16);
         },
     },
+    
     computed: {
         filter(){
             return this.contacts.filter((contacts) => {

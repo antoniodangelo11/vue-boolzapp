@@ -23,9 +23,12 @@
 
     <!-- LINK STYLE.CSS -->
     <link rel="stylesheet" href="assets/style.css">
+
+    <!-- STYLE PER NASCONDERE IL RENDER -->
+    <style>[v-cloak] {display: none;}</style>
 </head>
 <body>
-    <div class="container d-flex align-items-center justify-content-center" id="app">
+    <div class="container d-flex align-items-center justify-content-center" id="app" v-cloak>
         <div class="main_container d-flex">
 
             <!-- SIDE CHAT -->
