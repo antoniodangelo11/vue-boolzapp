@@ -89,7 +89,7 @@
                         class="contact_chat d-flex justify-content-between p-2"
                         v-for="(contact, index) in filterContacts" 
                         :key="contact.name"
-                        :class= "{active: index == activeIndex}"
+                        :class= "{selected: contact == contacts[activeIndex]}"
                         @click="activeChat(contact)" 
                     >
                         <div class="user_avatar d-flex align-items-center">
@@ -115,10 +115,14 @@
                 <div class="main_header d-flex justify-content-between">
     
                     <div class="user d-flex align-items-center">
-                        <img :src="contacts[activeIndex].avatar" alt="">
-                        <div>{{ contacts[activeIndex].name }}</div>
-                        <div>{{ extractNowDateAndTime(dateNow) }}</div>
+                        <img :src="contacts[activeIndex].avatar" alt="" >
+                        <div class="name_user_discussion">
+                            {{ contacts[activeIndex].name }}
+                            <div class="user_last_access">Ultimo accesso oggi alle: <span>{{ extractNowDateAndTime(dateNow) }}</span></div>
+                        </div>
                     </div>
+
+
                     <div class="command d-flex align-items-center">
                         <i class="fa-solid fa-magnifying-glass p-2 text-secondary"></i>
                         <i class="fa-solid fa-paperclip p-2 text-secondary"></i>

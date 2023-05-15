@@ -203,8 +203,8 @@ const app = Vue.createApp({
             return date.slice(11, 16);
         },
 
-        extractNowDateAndTime(dateNowX) {
-            return luxon.DateTime.now(dateNowX).toFormat('dd/MM/yyyy HH:mm:ss');
+        extractNowDateAndTime(dateNow) {
+            return luxon.DateTime.now(dateNow).toFormat('HH:mm');
         },
 
         activeChat(index) {

@@ -99,7 +99,10 @@ body {
     background-color: rgb(234, 234, 234);
     border-left: 1px solid white;
     padding-inline: .5rem;
+}
 
+.user_last_access {
+    font-size: .8rem
 }
 
 .main_chat .discussion {
