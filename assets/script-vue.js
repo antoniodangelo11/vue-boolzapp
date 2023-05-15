@@ -176,9 +176,9 @@ const app = Vue.createApp({
     },
     
     methods: {
-        addNewMessage(newMsg, dateNowX, index) {
+        addNewMessage(newMsg, dateNow, index) {
             let newMess = {
-                date: dateNowX,
+                date: dateNow,
                 message: newMsg,
                 status: 'sent',
             };
@@ -187,7 +187,7 @@ const app = Vue.createApp({
             
             setTimeout(() => {
                 let cpuMsg = {
-                    date: dateNowX,
+                    date: dateNow,
                     message: 'ok',
                     status: 'received',
                 };
